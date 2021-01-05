@@ -2,3 +2,7 @@
     height : 40vh;
     background : blue;
 }
+h1 {
+    margin: 0;
+    padding: 30px;
+}
