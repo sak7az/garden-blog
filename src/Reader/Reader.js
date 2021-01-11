@@ -1,5 +1,6 @@
 import React from 'react';
 import Articles from '../articles.json';
+import ArticleCard from '../ArticleCard/ArticleCard';
 import Article from '../Article/Article';
 import './Reader.css';
 
@@ -11,6 +12,7 @@ class Reader extends React.Component{
             selected : null
         }
         this.clickArticle = this.clickArticle.bind(this);
+        this.clearSelection = this.clearSelection.bind(this);
     }
 
     clickArticle(article){
@@ -19,23 +21,37 @@ class Reader extends React.Component{
         });
     }
 
-    render(){
+    clearSelection(){
+        this.setState({
+            selected: null
+        });
+    }
 
-        return(
-            <div id='reader'>
-                {Object.entries(this.state.articles).map(([key, value])=>(
-                        <Article
-                            key={value.title}
-                            title={value.title}
-                            body={value.body}
-                            image={value.imgsrc}
-                            tags={value.tags}
-                            onClick={this.clickArticle}
-                        />
-                    )
-                )}
-            </div>
-        )
+    render(){
+        if (this.state.selected){
+            return(
+                <div id='reader'>
+                    <Article 
+                        backClick={this.clearSelection}
+                        article={this.state.selected}
+                    />
+                </div>
+            )
+        } else{
+            return(
+                <div id='reader'>
+                    {Object.entries(this.state.articles).map(([key, value])=>(
+                            <ArticleCard
+                                key={value.title}
+                                article={value}
+                                onClick={this.clickArticle}
+                            />
+                        )
+                    )}
+                </div>
+            )
+        }
+        
     }
 }
 
