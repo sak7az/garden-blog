@@ -2,7 +2,8 @@
     float: left;
     display: flex;
     flex-direction: column;
-    background-color: aqua;
+    background-color: #A05100;
+    color: black;
     height: 80vh;
     width: 10vw;
     text-align: left;
@@ -15,6 +16,6 @@ a:link, a:visited {
 }
 
 a:link:active, a:visited:active {
-    color: red;
+    color: #eeeeee;
 }
 

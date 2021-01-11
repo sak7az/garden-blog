@@ -1,5 +1,5 @@
 .article {
-    background-color: #EDF0EF;
+    background-color: hsla(30, 100%, 86%, 0.6);
     width: 300px;
     height: 300px; 
     overflow: hidden;
