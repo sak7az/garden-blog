@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from '../Header/Header';
+import Menu from '../Menu/SideBar';
 import Reader from '../Reader/Reader';
 
 class Body extends React.Component{
@@ -7,7 +7,7 @@ class Body extends React.Component{
     render(){
         return (
             <div>
-                <Header />
+                <Menu />
                 <Reader />
             </div>
         )

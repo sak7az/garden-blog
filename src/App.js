@@ -1,11 +1,11 @@
 import './App.css';
 import Body from '../src/Body/Body';
-import Menu from './Menu/SideBar';
+import Header from '../src/Header/Header';
 
 function App() {
   return (
     <div className="App">
-      <Menu />
+      <Header />
       <Body />
     </div>
   );
