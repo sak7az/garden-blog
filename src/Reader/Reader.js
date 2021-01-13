@@ -9,10 +9,12 @@ class Reader extends React.Component{
         super(props);
         this.state = {
             articles : Articles,
-            selected : null
+            selected : null,
+            selectedTags : []
         }
         this.clickArticle = this.clickArticle.bind(this);
         this.clearSelection = this.clearSelection.bind(this);
+        this.clickTag = this.clickTag.bind(this);
     }
 
     clickArticle(article){
@@ -25,6 +27,10 @@ class Reader extends React.Component{
         this.setState({
             selected: null
         });
+    }
+
+    clickTag(tag){
+        console.log(tag);
     }
 
     render(){
