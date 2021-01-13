@@ -12,7 +12,9 @@ class Body extends React.Component{
     }
 
     selectMenuItem(item){
-        
+        this.setState({
+            display: item
+        })
     }
 
     render(){
