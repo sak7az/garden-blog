@@ -19,15 +19,44 @@ class Body extends React.Component{
 
     render(){
 
-
-        return (
-            <div>
-                <Menu 
-                    handleClick={this.selectMenuItem}
-                />
-                <Reader />
-            </div>
-        )
+        switch(this.state.display){
+            case "home":
+                return (
+                    <div>
+                        <Menu 
+                            handleClick={this.selectMenuItem}
+                        />
+                        <Reader />
+                    </div>
+                );
+            case "about":
+                return (
+                    <div>
+                        <Menu
+                            handleClick={this.selectMenuItem}
+                        />
+                        <About />
+                    </div>
+                );
+            case "calendar":
+                return (
+                    <div>
+                        <Menu
+                            handleClick={this.selectMenuItem}
+                        />
+                        <Calendar />
+                    </div>
+                );
+            case "contact":
+                return (
+                    <div>
+                        <Menu
+                            handleClick={this.selectMenuItem}
+                        />
+                        <Contact />
+                    </div>
+                )
+        }
     }
 }
 
