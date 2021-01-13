@@ -5,23 +5,25 @@ import Reader from '../Reader/Reader';
 class Body extends React.Component{
     constructor(props){
         super(props);
-        this.selectMenuItem = this.selectMenuItem.bind(this);
         this.state = {
             display : "home"
         }
+        this.selectMenuItem = this.selectMenuItem.bind(this);
     }
 
     selectMenuItem(item){
         this.setState({
             display: item
-        })
+        });
     }
 
     render(){
+
+
         return (
             <div>
                 <Menu 
-                    selector={this.selectMenuItem}
+                    handleClick={this.selectMenuItem}
                 />
                 <Reader />
             </div>
