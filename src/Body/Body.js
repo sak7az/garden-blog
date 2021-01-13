@@ -1,6 +1,9 @@
 import React from 'react';
 import Menu from '../Menu/SideBar';
 import Reader from '../Reader/Reader';
+import About from '../About/About';
+import Calendar from '../Calendar/Calendar';
+import Contact from '../Contact/Contact';
 
 class Body extends React.Component{
     constructor(props){
@@ -20,15 +23,6 @@ class Body extends React.Component{
     render(){
 
         switch(this.state.display){
-            case "home":
-                return (
-                    <div>
-                        <Menu 
-                            handleClick={this.selectMenuItem}
-                        />
-                        <Reader />
-                    </div>
-                );
             case "about":
                 return (
                     <div>
@@ -56,6 +50,15 @@ class Body extends React.Component{
                         <Contact />
                     </div>
                 )
+            default:
+                return (
+                    <div>
+                        <Menu 
+                            handleClick={this.selectMenuItem}
+                        />
+                        <Reader />
+                    </div>
+                );
         }
     }
 }
