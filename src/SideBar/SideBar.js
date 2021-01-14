@@ -32,14 +32,16 @@ class Menu extends React.Component{
 
     render(){
         return(
-            <div>
+            <div id="sidebar">
                 <nav id="menu">
                     <a href="#home" onClick={this.handleHomeClick}>home</a>
                     <a href="#about" onClick={this.handleAboutClick}>about</a>
                     <a href="#calendar" onClick={this.handleCalendarClick}>calendar</a>
                     <a href="#contact" onClick={this.handleContactClick}>contact</a>
                 </nav>
-                <Filter />
+                <Filter 
+                    clearAllTags={this.props.clearAllTags}
+                />
             </div>
             
         )

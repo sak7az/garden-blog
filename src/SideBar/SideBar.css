@@ -1,12 +1,15 @@
-#menu {
+#sidebar {
     float: left;
-    display: flex;
-    flex-direction: column;
-    background-color: #A05100;
-    color: black;
     height: 80vh;
     width: 15vw;
+    background-color: #A05100;
     text-align: left;
+}
+
+#menu {
+    display: flex;
+    flex-direction: column;
+    color: black;
 }
 
 a:link, a:visited {

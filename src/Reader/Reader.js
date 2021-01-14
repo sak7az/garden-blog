@@ -28,7 +28,7 @@ class Reader extends React.Component{
     }
 
     render(){
-        if (this.state.selected){
+        if (this.state.selected !== null){
             return(
                 <div id='reader'>
                     <Article 

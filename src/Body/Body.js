@@ -10,10 +10,12 @@ class Body extends React.Component{
         super(props);
         this.state = {
             display : "home",
-            selectedTags: []
+            selectedTags: [],
+            possibleTags: []
         }
         this.selectMenuItem = this.selectMenuItem.bind(this);
         this.clickTag = this.clickTag.bind(this);
+        this.clearAllTags = this.clearAllTags.bind(this);
     }
 
     selectMenuItem(item){
@@ -24,6 +26,17 @@ class Body extends React.Component{
 
     clickTag(tag){
         console.log(tag);
+    }
+
+    storePossibleTags(){
+
+    }
+
+    clearAllTags(){
+        this.setState({
+            selectedTags : []
+        });
+        console.log("cleared tags");
     }
 
     render(){
@@ -61,10 +74,11 @@ class Body extends React.Component{
                     <div>
                         <SideBar 
                             handleClick={this.selectMenuItem}
+                            clearAllTags={this.clearAllTags}
                         />
                         <Reader 
                             clickTag={this.clickTag}
-                            selectedTags={this.state.selectedTags}
+                            selectedTags={this.state.selectedTags}    
                         />
                     </div>
                 );
