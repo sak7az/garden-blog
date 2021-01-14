@@ -12,7 +12,10 @@ class Tag extends React.Component{
 
     render(){
         return (
-            <button onClick={this.handleClick}>{this.props.tag}</button>
+            <button 
+            className="tag" 
+            onClick={this.handleClick}>
+                {this.props.tag}</button>
         )
     }
 }

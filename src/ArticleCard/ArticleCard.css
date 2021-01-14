@@ -26,9 +26,11 @@
     display: inline;
 }
 
-button {
+.tag {
     background: none;
     border: none;
     cursor: pointer;
     outline: none;
+    text-decoration: underline;
+    margin: 10px;
 }
