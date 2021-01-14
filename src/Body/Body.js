@@ -1,5 +1,5 @@
 import React from 'react';
-import Menu from '../Menu/SideBar';
+import SideBar from '../SideBar/SideBar';
 import Reader from '../Reader/Reader';
 import About from '../About/About';
 import Calendar from '../Calendar/Calendar';
@@ -32,7 +32,7 @@ class Body extends React.Component{
             case "about":
                 return (
                     <div>
-                        <Menu
+                        <SideBar
                             handleClick={this.selectMenuItem}
                         />
                         <About />
@@ -41,7 +41,7 @@ class Body extends React.Component{
             case "calendar":
                 return (
                     <div>
-                        <Menu
+                        <SideBar
                             handleClick={this.selectMenuItem}
                         />
                         <Calendar />
@@ -50,7 +50,7 @@ class Body extends React.Component{
             case "contact":
                 return (
                     <div>
-                        <Menu
+                        <SideBar
                             handleClick={this.selectMenuItem}
                         />
                         <Contact />
@@ -59,7 +59,7 @@ class Body extends React.Component{
             default:
                 return (
                     <div>
-                        <Menu 
+                        <SideBar 
                             handleClick={this.selectMenuItem}
                         />
                         <Reader 
