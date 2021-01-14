@@ -19,7 +19,7 @@ class ArticleCard extends React.Component{
                 <h2 className="articleTitle">{this.props.article.title}</h2>
                 <button className="readMore" onClick={this.handleClick}>Read More</button>
                 <p className="articleText">{this.props.article.body}</p>
-                <ul className="tags">
+                <div className="tags">
                     {this.props.article.tags.map((tag) =>
                         <Tag 
                             className="tag"
@@ -29,7 +29,7 @@ class ArticleCard extends React.Component{
                         />
                     
                     )}
-                </ul>
+                </div>
             </div>
         )
     }
