@@ -15,8 +15,9 @@ class ArticleCard extends React.Component{
 
     render(){
         return(
-            <div onClick={this.handleClick} className="article">
+            <div className="article">
                 <h2 className="articleTitle">{this.props.article.title}</h2>
+                <button className="readMore" onClick={this.handleClick}>Read More</button>
                 <p className="articleText">{this.props.article.body}</p>
                 <ul className="tags">
                     {this.props.article.tags.map((tag) =>
