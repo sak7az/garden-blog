@@ -1,5 +1,6 @@
 import React from 'react';
 import './ArticleCard.css';
+import Tag from './Tag';
 
 class ArticleCard extends React.Component{
     constructor(props){
@@ -17,12 +18,17 @@ class ArticleCard extends React.Component{
             <div onClick={this.handleClick} className="article">
                 <h2 className="articleTitle">{this.props.article.title}</h2>
                 <p className="articleText">{this.props.article.body}</p>
-                <uo className="tags">
+                <ul className="tags">
                     {this.props.article.tags.map((tag) =>
-                        <li>{tag}</li>
+                        <Tag 
+                            className="tag"
+                            key={this.props.article.title+tag}
+                            onClick={this.props.clickTag}
+                            tag={tag}
+                        />
                     
                     )}
-                </uo>
+                </ul>
             </div>
         )
     }

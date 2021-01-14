@@ -51,6 +51,7 @@ class Reader extends React.Component{
                                 key={value.title}
                                 article={value}
                                 onClick={this.clickArticle}
+                                clickTag={this.clickTag}
                             />
                         )
                     )}
