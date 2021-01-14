@@ -14,7 +14,7 @@ class Body extends React.Component{
             possibleTags: []
         }
         this.selectMenuItem = this.selectMenuItem.bind(this);
-        this.clickTag = this.clickTag.bind(this);
+        this.clickTag = this.addTag.bind(this);
         this.clearAllTags = this.clearAllTags.bind(this);
     }
 
@@ -24,7 +24,7 @@ class Body extends React.Component{
         });
     }
 
-    clickTag(tag){
+    addTag(tag){
         console.log(tag);
     }
 
@@ -75,9 +75,10 @@ class Body extends React.Component{
                         <SideBar 
                             handleClick={this.selectMenuItem}
                             clearAllTags={this.clearAllTags}
+                            addTag={this.addTag}
                         />
                         <Reader 
-                            clickTag={this.clickTag}
+                            clickTag={this.addTag}
                             selectedTags={this.state.selectedTags}    
                         />
                     </div>

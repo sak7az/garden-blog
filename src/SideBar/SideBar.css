@@ -1,7 +1,7 @@
 #sidebar {
     float: left;
     height: 80vh;
-    width: 15vw;
+    width: 18vw;
     background-color: #A05100;
     text-align: left;
 }
@@ -22,3 +22,15 @@ a:link:active, a:visited:active {
     color: #eeeeee;
 }
 
+#filter {
+    margin: auto;
+    background-color: hsla(30, 100%, 86%, 0.6);
+}
+
+.formItem {
+    margin: 1em;
+}
+
+label {
+    display: block;
+}
