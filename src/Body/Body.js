@@ -14,7 +14,7 @@ class Body extends React.Component{
             possibleTags: []
         }
         this.selectMenuItem = this.selectMenuItem.bind(this);
-        this.clickTag = this.addTag.bind(this);
+        this.addTag = this.addTag.bind(this);
         this.clearAllTags = this.clearAllTags.bind(this);
     }
 
@@ -25,7 +25,12 @@ class Body extends React.Component{
     }
 
     addTag(tag){
-        console.log(tag);
+        var clone = [...this.state.selectedTags];
+        clone.push(tag);
+        this.setState({
+            selectedTags: clone
+        });
+        console.log(this.state.selectedTags);
     }
 
     storePossibleTags(){
@@ -76,6 +81,7 @@ class Body extends React.Component{
                             handleClick={this.selectMenuItem}
                             clearAllTags={this.clearAllTags}
                             addTag={this.addTag}
+                            selectedTags={this.state.selectedTags}
                         />
                         <Reader 
                             clickTag={this.addTag}
