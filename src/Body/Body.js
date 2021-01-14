@@ -9,15 +9,21 @@ class Body extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            display : "home"
+            display : "home",
+            selectedTags: []
         }
         this.selectMenuItem = this.selectMenuItem.bind(this);
+        this.clickTag = this.clickTag.bind(this);
     }
 
     selectMenuItem(item){
         this.setState({
             display: item
         });
+    }
+
+    clickTag(tag){
+        console.log(tag);
     }
 
     render(){
@@ -56,7 +62,10 @@ class Body extends React.Component{
                         <Menu 
                             handleClick={this.selectMenuItem}
                         />
-                        <Reader />
+                        <Reader 
+                            clickTag={this.clickTag}
+                            selectedTags={this.state.selectedTags}
+                        />
                     </div>
                 );
         }
