@@ -26,7 +26,12 @@ class Body extends React.Component{
 
     addTag(tag){
         var clone = [...this.state.selectedTags];
-        clone.push(tag);
+        if(clone.includes(tag)){ 
+            var remove = clone.indexOf(tag);
+            clone.splice(remove, 1);
+        }else {
+            clone.push(tag);
+        }
         this.setState({
             selectedTags: clone
         });

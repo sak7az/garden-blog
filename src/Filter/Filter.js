@@ -1,4 +1,5 @@
 import React from 'react';
+import Tag from '../ArticleCard/Tag';
 
 class Filter extends React.Component{
 
@@ -17,7 +18,17 @@ class Filter extends React.Component{
                         name="tagInput"></input> 
                     <button 
                         type='button'
-                        className='formItem'>Add Tag</button>
+                        className='formItem'
+                    >Add Tag</button>
+                    <p className='formItem'>Selected Tags: </p>
+                    {this.props.selectedTags.map((tag)=>
+                        <Tag 
+                            className="tag"
+                            key={tag}
+                            onClick={this.props.addTag}
+                            tag={tag}
+                        />
+                    )}
                     <button 
                         type='button' 
                         className='formItem'

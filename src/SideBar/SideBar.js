@@ -41,6 +41,8 @@ class Menu extends React.Component{
                 </nav>
                 <Filter 
                     clearAllTags={this.props.clearAllTags}
+                    addTag={this.props.addTag}
+                    selectedTags={this.props.selectedTags}
                 />
             </div>
             
