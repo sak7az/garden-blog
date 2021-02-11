@@ -16,12 +16,19 @@ class Body extends React.Component{
         this.selectMenuItem = this.selectMenuItem.bind(this);
         this.addTag = this.addTag.bind(this);
         this.clearAllTags = this.clearAllTags.bind(this);
+        this.storePossibleTags = this.storePossibleTags.bind(this);
     }
 
     selectMenuItem(item){
         this.setState({
             display: item
         });
+    }
+
+    parseTag(tag){
+        let parsedTag = tag.trim();
+        parsedTag = parsedTag.toLowerCase();
+        return parsedTag;
     }
 
     addTag(tag){
@@ -35,22 +42,21 @@ class Body extends React.Component{
         this.setState({
             selectedTags: clone
         });
-        console.log(this.state.selectedTags);
     }
 
-    storePossibleTags(){
-
+    storePossibleTags(tagsArray){
+        this.setState({
+            possibleTags : tagsArray
+        });
     }
 
     clearAllTags(){
         this.setState({
             selectedTags : []
         });
-        console.log("cleared tags");
     }
 
     render(){
-
         switch(this.state.display){
             case "about":
                 return (
@@ -87,10 +93,13 @@ class Body extends React.Component{
                             clearAllTags={this.clearAllTags}
                             addTag={this.addTag}
                             selectedTags={this.state.selectedTags}
+                            parseTag={this.parseTag}
+                            possibleTags={this.state.possibleTags}
                         />
                         <Reader 
                             clickTag={this.addTag}
-                            selectedTags={this.state.selectedTags}    
+                            selectedTags={this.state.selectedTags}   
+                            storePossibleTags={this.storePossibleTags} 
                         />
                     </div>
                 );

@@ -43,6 +43,8 @@ class Menu extends React.Component{
                     clearAllTags={this.props.clearAllTags}
                     addTag={this.props.addTag}
                     selectedTags={this.props.selectedTags}
+                    parseTag={this.props.parseTag}
+                    possibleTags={this.props.possibleTags}
                 />
             </div>
             

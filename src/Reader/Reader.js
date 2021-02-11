@@ -8,11 +8,16 @@ class Reader extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            articles : Articles,
+            articles : Articles.articles,
             selected : null,
         }
         this.clickArticle = this.clickArticle.bind(this);
         this.clearSelection = this.clearSelection.bind(this);
+        this.storeTags = this.storeTags.bind(this);
+        this.retrieveArticlesWithSelectedTags = this.retrieveArticlesWithSelectedTags.bind(this);
+        this.isSelectedArticle = this.isSelectedArticle.bind(this);
+
+        this.storeTags();
     }
 
     clickArticle(article){
@@ -27,7 +32,32 @@ class Reader extends React.Component{
         });
     }
 
+    storeTags(){
+        var possibleTags = [];
+        Object.entries(this.state.articles).forEach(([key, value])=>{
+            value.tags.forEach(tag=>{
+                if (!possibleTags.includes(tag)){ possibleTags.push(tag); }
+            });
+        });
+        this.props.storePossibleTags(possibleTags);
+    }
+
+    isSelectedArticle(article){
+        var tag;
+        for (tag of this.props.selectedTags){
+            if (!article.tags.includes(tag)){ return false; }
+        }
+        return true;
+    }
+
+    retrieveArticlesWithSelectedTags(){
+        if (this.props.selectedTags.length === 0){ return this.state.articles; }
+        let selectedArticles = this.state.articles.filter((article)=>this.isSelectedArticle(article));
+        return selectedArticles;
+    }
+
     render(){
+
         if (this.state.selected !== null){
             return(
                 <div id='reader'>
@@ -40,10 +70,10 @@ class Reader extends React.Component{
         } else{
             return(
                 <div id='reader'>
-                    {Object.entries(this.state.articles).map(([key, value])=>(
+                    {this.retrieveArticlesWithSelectedTags().map((article)=>(
                             <ArticleCard
-                                key={value.title}
-                                article={value}
+                                key={article.title}
+                                article={article}
                                 onClick={this.clickArticle}
                                 clickTag={this.props.clickTag}
                             />
